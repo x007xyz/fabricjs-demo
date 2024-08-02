@@ -1,22 +1,54 @@
 <script setup>
-import RemoveVideoGreen from './views/RemoveVideoGreen.vue'
-import ClipVideo from './views/ClipVideo.vue'
-import CustomFilter from './views/CustomFilter.vue';
+  import { NLayout, NLayoutSider, NMenu } from "naive-ui"
+import { useRouter } from "vue-router";
 
-import { ref } from 'vue'
+  const menuOptions = [
+  {
+    label: 'fabric播放视频',
+    key: '/'
+  },
+  {
+    label: '移除视频绿幕',
+    key: '/removeGreen',
+  },
+  {
+    label: '移除视频绿幕（自定义滤镜）',
+    key: '/customFilter'
+  },
+  {
+    label: '生成视频缩略图',
+    key: '/thumbnail',
+  }
+]
 
-const route = ref('RemoveVideoGreen')
+const router = useRouter()
+
+function onClickMenu(path) {
+  router.push(path)
+}
 </script>
 
 <template>
-  <div>
-    <button @click="route = 'RemoveVideoGreen'">绿幕视频</button>
-    <button @click="route = 'ClipVideo'">裁剪视频</button>
-    <button @click="route = 'CustomFilter'">自定义滤镜</button>
-  </div>
-  <RemoveVideoGreen v-if="route === 'RemoveVideoGreen'"></RemoveVideoGreen>
-  <ClipVideo v-if="route === 'ClipVideo'"></ClipVideo>
-  <CustomFilter v-if="route === 'CustomFilter'"></CustomFilter>
+  <n-layout has-sider sider-placement="right" style="position: absolute; inset: 0;">
+    <n-layout-sider
+      bordered
+      collapse-mode="width"
+      :collapsed-width="64"
+      :width="240"
+      :native-scrollbar="false"
+      style="max-height: 320px"
+    >
+      <n-menu
+        :collapsed-width="64"
+        :collapsed-icon-size="22"
+        :options="menuOptions"
+        :on-update:value="onClickMenu"
+      />
+    </n-layout-sider>
+    <n-layout style="height: 100%">
+      <router-view></router-view>
+    </n-layout>
+  </n-layout>
 </template>
 
 <style scoped>
