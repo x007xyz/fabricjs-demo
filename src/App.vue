@@ -18,6 +18,10 @@ import { useRouter } from "vue-router";
   {
     label: '生成视频缩略图',
     key: '/thumbnail',
+  },
+  {
+    label: '背景抠图',
+    key: '/removebg',
   }
 ]
 

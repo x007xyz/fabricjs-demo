@@ -8,6 +8,9 @@ const routes = [
   },
   {
     path: '/thumbnail', component: () => import('./views/Thumbnail.vue')
+  },
+  {
+    path: '/removebg', component: () => import('./views/RemoveBg.vue')
   }
 ]
 
