@@ -11,6 +11,9 @@ const routes = [
   },
   {
     path: '/removebg', component: () => import('./views/RemoveBg.vue')
+  },
+  {
+    path: '/audioWave', component: () => import('./views/AudioWave.vue')
   }
 ]
 

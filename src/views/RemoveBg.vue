@@ -86,8 +86,8 @@ function onRemoveBg02() {
   img.filters.push(
     new fabric.Image.filters.RemoveGreen({
       similarity: 0.4,
-      smoothness: 0.06,
-      spill: 0.02
+      smoothness: 0.02,
+      spill: 0.1
     }),
   )
 

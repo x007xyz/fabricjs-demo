@@ -22,6 +22,10 @@ import { useRouter } from "vue-router";
   {
     label: '背景抠图',
     key: '/removebg',
+  },
+  {
+    label: '音频波形图',
+    key: '/AudioWave',
   }
 ]
 
